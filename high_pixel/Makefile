@@ -1,6 +1,6 @@
 TARGET = highpixel
 CC = gcc
-CFLAGS = -g -Wall
+CFLAGS = -O2 -Wall
 
 .PHONY: default all clean
 
