@@ -34,7 +34,11 @@ void build_high_pixels(const image_t* image, heap_t* high_pixels) {
 }
 ```
 
-Runtime: `O(N + X * log (X))`
+Runtime: `O(N + X * log (X))`, where `N >> X` so we can assume `O(log(X))==O(1)`.
+Also, if X is small enough so the entire heap fits into cache we have almost linear O(N) time for building it.
+In our case N (> 2^16) >> log(50), so we can the small factor.
+If X can't be ignored the actual runtime complexity becomes: O(N * log(X) + X * log(X)).
+
 Memory space: `O(2 * X)`, the `2` comes from the fact that we store both pixels values + pixel positions.
 
 ### Implementation
